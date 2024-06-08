@@ -26,3 +26,11 @@ signupBtn.addEventListener('click', (e) => {
 		}
 	});
 });
+
+
+
+
+
+
+
+// Yaratuvchi Suyunov Husanbek
