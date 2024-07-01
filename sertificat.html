@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    input, button {
+      font-family: Arial, sans-serif;
+      width: 75%;
+      height: 30px;
+      margin: 10px;
+      padding: 7px;
+    }
+    body{
+        font-family: Arial, sans-serif;
+        /* margin: 0;
+        padding: 0; */
+        display: flex;
+        /* justify-content: center;
+        align-items: center;
+        height: 100vh; */
+        
+    }
+    aslide {
+    background-color: #11a015;
+    font-size: 30px;
+    padding: 20px;
+    width: 100%;
+    height: 50%;
+    line-height: 100px;
+    color: #fff;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #1331d8;
+      color: white;
+      border: none;
+      width: 150px;
+      height: 35px;
+      border-radius: 5px;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff; /* White text color */
+    }
+
+
+  </style>
+</head>
+<body>
+  <aslide >
+    <center><h3>ID karta raqamini kiritish orqali Sertifikatni tekshirish</h3></center>
+    
+    <center><input type="text" id="passportId" placeholder="Pasport Seriyasi va Raqami"></center>
+    
+    <center><button onclick="check()">Davom etish</button></center>
+    <div class="result" id="result"></div>
+  </aslide>
+  
+  <script>
+    function check() {
+      const passportId = document.getElementById('passportId').value;
+      google.script.run.withSuccessHandler(showResult).checkStatus(passportId);
+    }
+
+    function showResult(response) {
+      const resultDiv = document.getElementById('result');
+      if (response.found) {
+        resultDiv.innerHTML = `Ism familiya: ${response.data.name}<br>Yo'nalish: ${response.data.country}<br>Natija: ${response.data.status}`;
+        // Change color based on status
+        switch (response.data.status.toLowerCase()) {
+          case "Ariza bekor qilingan":
+            resultDiv.style.backgroundColor = '#4CAF50'; // Green
+            break;
+          case "Ariza berilgan javob kutilmoqda":
+            resultDiv.style.backgroundColor = '#aa9903e5'; // Yellow
+            break;
+          case "Ushbu ID raqamdan hech qanday ariza berilmagan":
+            resultDiv.style.backgroundColor = '#F44336'; // Red
+            break;
+          default:
+            resultDiv.style.backgroundColor = '#9E9E9E'; // Grey for unknown statuses
+        }
+      } else {
+        resultDiv.innerHTML = "Siz Pasport yoki Tug'ilganlik haqida guvohnoma ID raqamini xato kiritdingiz iltimos qaytadan harakat qilib ko'ring. Kiritish uchun nusxa: Pasport: AB1234567, Guvohnoma: IGZ1234567";
+        resultDiv.style.backgroundColor = ''; // Reset to default
+      }
+    }
+  </script>
+  <script>
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 600) {
+            document.querySelector('.container').style.width = '100%';
+        } else {
+            document.querySelector('.container').style.width = '90%';
+        }
+        });
+  </script>
+</body>
+</html>
