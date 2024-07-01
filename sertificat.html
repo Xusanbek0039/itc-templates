@@ -5,15 +5,21 @@
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    align-items: center;
+    background-image: url(https://img.goodfon.ru/original/2560x1440/d/77/render-protsessor-robot-provereno-provereno-elektronikoi-you.jpg);
+    background-repeat: no-repeat;
+background-size: cover; /* yoki contain - tanlangan razmerlariga mos ravishda rasmi o'lchash */
+background-position: center center; /* rasmi o'rtada joylash */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
 }
 
 /* Container for the content */
 .myclass {
-    background-color: #11a015;
-    font-size: 30px;
+    background-color: #1177a096;
+    font-size: 20px;
     padding: 20px;
     color: #fff;
     text-align: center; /* Center text */
@@ -48,7 +54,6 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     color: #fff;
-    background-color: #11a015; /* Match background color of .aslide */
 }
 
 /* Media query for tablets and larger screens */
@@ -60,7 +65,7 @@ button:hover {
     }
 
     input, button {
-        width: 50%; /* Reduced width for tablets and larger screens */
+        width: 65%; /* Reduced width for tablets and larger screens */
         height: 62px; /* Increased height for tablets and larger screens */
         font-size: 25px;
     }
@@ -86,12 +91,14 @@ button:hover {
 </head>
 <body>
   <div class="myclass" >
-    <center><h3>ID karta raqamini kiritish orqali Sertifikatni tekshirish</h3></center>
+    <center><h3>ID karta raqamini kiritish orqali malumotlaringizni tekshirishingiz mumkin</h3></center>
     
     <center><input type="text" id="passportId" placeholder="AA123456, IGZ0001122"></center>
     
     <center><button onclick="check()">Davom etish</button></center>
-    <div class="result" id="result"></div>
+    <div class="result" id="result">
+        <p>Bu yerda siz natijalarni ko'raolasiz:</p>
+    </div>
   </div>
   
   <script>
@@ -107,16 +114,16 @@ button:hover {
         // Change color based on status
         switch (response.data.status.toLowerCase()) {
           case "Ariza bekor qilingan":
-            resultDiv.style.backgroundColor = '#4CAF50'; // Green
+            resultDiv.style.backgroundColor = '#1177a096'; // Green
             break;
           case "Ariza berilgan javob kutilmoqda":
-            resultDiv.style.backgroundColor = '#aa9903e5'; // Yellow
+            resultDiv.style.backgroundColor = '#1177a096'; // Yellow
             break;
           case "Ushbu ID raqamdan hech qanday ariza berilmagan":
-            resultDiv.style.backgroundColor = '#F44336'; // Red
+            resultDiv.style.backgroundColor = '#1177a096'; // Red
             break;
           default:
-            resultDiv.style.backgroundColor = '#9E9E9E'; // Grey for unknown statuses
+            resultDiv.style.backgroundColor = '#1177a096'; // Grey for unknown statuses
         }
       } else {
         resultDiv.innerHTML = "Siz Pasport yoki Tug'ilganlik haqida guvohnoma ID raqamini xato kiritdingiz iltimos qaytadan harakat qilib ko'ring. Kiritish uchun nusxa: Pasport: AB1234567, Guvohnoma: IGZ1234567";
