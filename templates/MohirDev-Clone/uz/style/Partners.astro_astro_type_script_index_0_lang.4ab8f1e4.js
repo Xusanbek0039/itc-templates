@@ -1,1 +1,0 @@
-import{E as e,A as a}from"./embla-carousel-autoplay.esm.8d54907d.js";const n=2e3;function r(){const o=document.getElementById("partners-carousel").querySelector(".viewport");e(o,{loop:!0,align:.1,draggable:!0},[a({delay:n,rootNode:e=>e.parentElement})])}r();
