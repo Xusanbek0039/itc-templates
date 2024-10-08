@@ -1,0 +1,31 @@
+ErrorDocument 403 /page54393691.html
+ErrorDocument 404 /page54393691.html
+
+DirectoryIndex page53973815.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^ru$ page54393691.html [NC]
+RewriteRule ^ru/$ page54393691.html [NC]
+
+RewriteRule ^about-uz$ page54497817.html [NC]
+RewriteRule ^about-uz/$ page54497817.html [NC]
+
+RewriteRule ^hizmatlar-uz$ page54497835.html [NC]
+RewriteRule ^hizmatlar-uz/$ page54497835.html [NC]
+
+RewriteRule ^mahsulotlarimiz-uz$ page54497869.html [NC]
+RewriteRule ^mahsulotlarimiz-uz/$ page54497869.html [NC]
+
+RewriteRule ^itczomin$ page55290625.html [NC]
+RewriteRule ^itczomin/$ page55290625.html [NC]
+
+RewriteRule ^members/ ma_start.html [NC]
+
+
