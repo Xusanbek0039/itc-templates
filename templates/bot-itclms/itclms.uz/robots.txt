@@ -1,0 +1,20 @@
+User-Agent: *
+Disallow: /page57584813.html
+Disallow: /error
+Disallow: /tilda/form*
+Disallow: /tilda/rec*
+Disallow: /tilda/click*
+Disallow: /tilda/scroll*
+Disallow: /tilda/popup*
+Disallow: /tilda/cart*
+Disallow: /tilda/product*
+Disallow: /tilda/event*
+Disallow: /*_escaped_fragment_*
+Disallow: /members/login*
+Disallow: /members/signup*
+Disallow:
+
+
+Sitemap: http://itclms.uz/sitemap.xml
+Sitemap: http://itclms.uz/sitemap-feeds.xml
+Host: itclms.uz
